@@ -4,6 +4,8 @@
 All tasks in one file (script.js)
 =======================================
 */
+document.addEventListener("DOMContentLoaded", function() {
+    // All code goes inside this function to ensure the DOM is fully loaded before any manipulation.
 
 /*  
 =======================================
@@ -71,8 +73,22 @@ data.content   // the quote text
 data.author    // the author
 */
 
-
- 
+document.getElementById("t3-loadQuote").addEventListener("click", function() {
+    fetch("https://dummyjson.com/quotes/random")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            document.getElementById("t3-quote").innerHTML = data.quote;
+            document.getElementById("t3-author").innerHTML = data.author;
+        })
+        .catch(function (err) {
+            console.error('There was an error in fetching the quote:', err);
+        });
+});
 
 /*  
 =======================================
@@ -98,3 +114,25 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+
+
+document.getElementById("t4-loadWx").addEventListener("click", function() {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=d51f2f00c3b137ccfd135bd8f9dd50aa&units=metric")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            document.getElementById("t4-temp").textContent = data.main.temp + " °C";
+            document.getElementById("t4-hum").textContent = data.main.humidity + " %";
+            document.getElementById("t4-wind").textContent = data.wind.speed + " m/s";
+        })
+        .catch(function (err) {
+            console.error('There was an error in fetching the weather data:', err);
+        });
+});
+
+});
