@@ -38,8 +38,11 @@ the <p> with id="t2-status" to:
 - Inside the event, change the text of the status paragraph.
 
 💡 Hint:
-
 */
+
+document.getElementById("t2-btn").addEventListener("click", function() {
+    document.getElementById("t2-status").innerHTML = "You clicked the button!";
+});
 
 /*  
 =======================================
@@ -67,6 +70,7 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
+
 
  
 
