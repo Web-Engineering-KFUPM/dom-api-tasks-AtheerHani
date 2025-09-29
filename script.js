@@ -16,11 +16,13 @@ inside the <p> element with id="t1-msg".
 - Select the element with id "t1-msg".
 - Change its text to "Hello, World!".
 
+
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
 
+document.getElementById("t1-msg").innerHTML = "Hello, World!"; 
+ 
 /*  
 =======================================
 TODO2: Interaction Corner
@@ -36,11 +38,8 @@ the <p> with id="t2-status" to:
 - Inside the event, change the text of the status paragraph.
 
 💡 Hint:
-button.addEventListener("click", function () {
-    // change text here
-});
+
 */
- 
 
 /*  
 =======================================
@@ -68,6 +67,7 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
+
  
 
 /*  
